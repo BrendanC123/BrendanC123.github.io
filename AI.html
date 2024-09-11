@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Amaurosis</title>
+		<title>AI</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,8 +19,8 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>Amaurosis</h1>
-						<p>AI in Unity for Team Project</p>
+						<h1>AI Module</h1>
+						<p>Hierarchical State Machine and A* Path Finding</p>
 					</header>
 
 				<!-- Main -->
@@ -30,12 +30,15 @@
 							<section id="content" class="main">
 								<div style="width: 100%;">
 									<div style="position: relative; width: 100%; overflow: hidden; padding-top: 56.25%;">
-										<p><iframe style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/kdk65HWHydY"></iframe></p>
+										<p><iframe style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/AVtuYwTcwfM"></iframe></p>
 									</div>
 								</div>
 								<h2>Creating the AI</h2>
-								<p>This AI was created to replicate the systems used by Creative Assembly in Alien: Isolation. In order to do this, I first created a behaviour tree system in Unity that I could then use as a base to develop the AI in the game.</p>
-								<p>The monster is blind and so can only rely on their hearing to hunt down the player. The dilemma is that the player is also blind and needs to create sound in order to see their surroundings. In trying to mirror the Alien: Isolation’s AI the AI doesn’t cheat and has to rely solely on noises heard to find and hunt the player. The AI starts roaming being told by the director where on the map to investigate (the director AI was created by another team member). Whenever the AI hears a sound it investigates it, slowly circling its position. There is a priority system in place to help the player, if the heard sound is an object thrown by the player, the AI will favor that for a few seconds so that if the player steps just after throwing a distraction the AI will still go to the distraction. If it gets close enough to the player, it identifies that it is something it should hunt and begins to chase the player. The monster then runs after the player and won’t lose track of them until the player closes a door on the monster at which point the monster has to locate and hunt the player all over again.</p>
+								<p>This AI was created for my AI module in second year. I was provided with the pre existing framework of the cars and graphics system and waypoint manager (there is a waypoint at every road intersection).  I needed to create an AI to control both cars.</p>
+								<p>There are 3 top level states that control the cars behaviour. Each entered by pressing 1, 2, or 3, on the keyboard.</p>
+								<p>The first state is the steering behaviour state. When put into this state the car can perform one of many steering behaviours depending on the sub state it is put in. The wander state is the default state and can be entered by pressing W. This state causes the red car to wander aimlessly. Pressing S causes the blue car to seek to a random waypoint and when it gets there it seeks to a different random waypoint. Pressing A causes the blue car to arrive at a random waypoint, decelerating until it's there. When in the wander state pressing P causes the blue car to chase the red car. And when in the wander state pressing F causes the blue car to flee the red car, it stays stationary when the red car isn’t within range.</p>
+								<p>The second state is the pathfinding state. The blue car drives to the passenger icon. It does this by travelling on the road using the A* to find the fastest path. Once the passenger is collected it does the same and paths to the next passenger.</p>
+								<p>The third state is the decision making state. In this state the AI has to balance fuel and speed boosts to collect passengers as efficiently as possible while not running out of fuel.</p>
 							</section>
 
 							<section id="third" class="main special">
